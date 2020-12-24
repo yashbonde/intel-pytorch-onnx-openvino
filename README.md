@@ -53,6 +53,9 @@ Start a jupyter notebook and select the kernel `<name>`.
 ## ONNX Model
 
 To get the model in the ONNX format first run the file `convert_pt2onnx.py`. In practice you can convert any network to using the `torch.onnx._export(model, sample_input, "path/to/onnx", export_params=True)`.
+```
+python3 convert_pt2onnx.py --image some/image/of/a/dog/playing/in/grass.png
+```
 
 ## From ONNX to Openvino
 
@@ -100,4 +103,7 @@ mo_onnx.py --input_model resnet18.onnx --scale_values=[58.395,57.120,57.375] --m
 
 ## OpenVino Runtime
 
-We need to write a simple python script that uses `openvino.inference_engine`, see [here](./classification.py).
+We need to write a simple python script that uses `openvino.inference_engine`, see [here](./classification.py). To get the classification we use a similar API as for conversion script:
+```
+python3 classification.py --image some/image/of/a/dog/playing/in/snow.png
+```
